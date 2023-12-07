@@ -1,6 +1,7 @@
 package pageUI;
 
 public class ScheduleListPageUI {
-    public static final String LOGIN_BUTTON = "XPATH=//span[text()='Đăng nhập với WSO2 Identity Server']";
+    public static final String ADD_BUTTON = "XPATH=//span[text()='Thêm mới']";
+
 
 }

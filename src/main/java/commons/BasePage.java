@@ -447,6 +447,12 @@ public class BasePage {
 		sleepInSecond(3);
 	}
 
+
+	public void clickToElementByJS(WebDriver driver, String locator, String...restParams) {
+		((JavascriptExecutor)driver).executeScript("arguments[0].click();", getElement(driver, getDynamicLocator(locator, restParams)));
+		sleepInSecond(3);
+	}
+
 	public void scrollToElementOnTop(WebDriver driver, String locator) {
 		((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", getElement(driver, locator));
 	}
@@ -462,7 +468,9 @@ public class BasePage {
 	public void setAttributeInDOM(WebDriver driver, String locator, String attributeName, String attributeValue) {
 		((JavascriptExecutor)driver).executeScript("arguments[0].setAttribute('" + attributeName + "', '" + attributeValue +"');", getElement(driver, locator));
 	}
-
+	public void setAttributeInDOM(WebDriver driver, String locator, String attributeName, String attributeValue, String...restParams) {
+		((JavascriptExecutor)driver).executeScript("arguments[0].setAttribute('" + attributeName + "', '" + attributeValue +"');", getElement(driver, getDynamicLocator(locator, restParams)));
+	}
 	public void removeAttributeInDOM(WebDriver driver, String locator, String attributeRemove) {
 		((JavascriptExecutor)driver).executeScript("arguments[0].removeAttribute('" + attributeRemove + "');", getElement(driver, locator));
 	}
